@@ -9,13 +9,13 @@ from src.pipeline.components.shap_explain_component import shap_explain_componen
 def sow_shap_explain_pipeline(
     # Snowflake/secret inputs
     app_env: str = "np",
-    gcp_project_id: str = "prj-hds-np-data",
-    snowflake_account: str = "HDSUPPLY-DATA",
-    snowflake_user: str = "INTERFACE_VERTEX_DEV",
-    snowflake_database: str = "EDP_ML_DEV",
-    snowflake_schema: str = "SOW",
-    snowflake_role: str = "HDS-EDP-IT-MLOPS-DEVELOPER-U0",
-    snowflake_warehouse: str = "MLOPS_DEV_WH1",
+    gcp_project_id: str = "",
+    snowflake_account: str = "",
+    snowflake_user: str = "",
+    snowflake_database: str = "",
+    snowflake_schema: str = "",
+    snowflake_role: str = "",
+    snowflake_warehouse: str = "",
     snowflake_password_secret_name: str = "snowflake-password",
 
     # Inputs
@@ -29,9 +29,9 @@ def sow_shap_explain_pipeline(
     debug_gcs_bucket: str = "",
 
     # Bundle and run params (declare once)
-    bundle_gcs_uri: str = "gs://gcs-mlops-setup-prj-hds-np-data-unique/models/sow-clusters/run_20250913_203500_20250913_203500/",
-    model_bundle_gcs_uri: str = "gs://gcs-mlops-setup-prj-hds-np-data-unique/models/sow-clusters/run_20250913_203500_20250913_203500/",
-    run_id: str = "run_20250913_203500_20250913_203500",
+    bundle_gcs_uri: str = "gs://gcs-mlops-setup-/",
+    model_bundle_gcs_uri: str = "gs://gcs-mlops-setup",
+    run_id: str = "run_202509",
     run_timestamp_utc: str = "2025-09-13T20:35:00Z",
 
     # default to CONSUMER (focus on consumer segment)
