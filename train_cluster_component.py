@@ -3,8 +3,7 @@ import os
 from kfp import dsl
 
 IMAGE_URI = os.getenv(
-    "SOW_PIPELINE_IMAGE",
-    "us-central1-docker.pkg.dev/prj-hds-np-data/ml-pipeline-images/sow-py:de50c50",
+    "SOW_PIPELINE_IMAGE"
 )
 
 @dsl.component(
@@ -42,7 +41,7 @@ def train_cluster_artifacts(
     training_max_rows: int = 0,   # 0 = all rows (cap is applied PER industry)
 
     # output
-    model_gcs_prefix: str = "gs://gcs-mlops-setup-prj-hds-np-data-unique/models/sow-clusters",
+    model_gcs_prefix: str =""
 
     # run metadata
     run_id: str = "",
