@@ -5,8 +5,7 @@ import importlib
 import inspect
 
 IMAGE_URI = os.getenv(
-    "SOW_PIPELINE_IMAGE",
-    "us-central1-docker.pkg.dev/prj-hds-np-data/ml-pipeline-images/sow-py:de50c50",
+    "SOW_PIPELINE_IMAGE"
 )
 
 @dsl.component(
@@ -39,7 +38,7 @@ def shap_explain_component(
     input_clusters_table: str,
 
     # pipeline-level output table (fallback if manifest doesn't provide per-segment table)
-    output_table: str = "EDP_ML_DEV.SOW.SOW_SHAP_EXPLAIN_PIPELINETEST",
+    output_table: str = "",
     model_bundle_gcs_uri: str = "",
     bundle_gcs_uri: str = "",
     # run metadata / controls
