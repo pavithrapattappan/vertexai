@@ -3,14 +3,14 @@ from kfp import dsl
 @dsl.pipeline(name="sow-batch-infer")
 def sow_batch_infer_pipeline(
     # BigQuery
-    bq_project: str = "prj-hds-np-data",
-    bq_dataset: str = "SOW_TEST",
-    bq_features_table: str = "SOW_FEATURES_TEST",
-    bq_preprocessed_table: str = "SOW_FEATURES_PREP_TEST",
-    bq_scored_table: str = "SOW_CLUSTERED_DATA_TEST",
+    bq_project: str = "",
+    bq_dataset: str = "SOW",
+    bq_features_table: str = "SOW_TEST",
+    bq_preprocessed_table: str = "SOWST",
+    bq_scored_table: str = "",
 
     # Model artifacts
-    model_dir_base_gcs: str = "gs://gcs-mlops-setup-prj-hds-np-data-unique/models",
+    model_dir_base_gcs: str = "gs://gcs/models",
     model_run_id: str = "latest",      # "latest" or an explicit run_id string
 
     # Refresh preprocessing first?
