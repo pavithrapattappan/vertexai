@@ -4,7 +4,7 @@ from kfp import dsl
 
 IMAGE_URI = os.getenv(
     "SOW_PIPELINE_IMAGE",
-    "us-central1-docker.pkg.dev/prj-hds-np-data/ml-pipeline-images/sow-py:5541009",
+
 )
 
 @dsl.component(
