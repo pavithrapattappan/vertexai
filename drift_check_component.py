@@ -3,8 +3,7 @@ from kfp import dsl
 
 IMAGE_URI = os.getenv(
     "SOW_PIPELINE_IMAGE",
-    "us-central1-docker.pkg.dev/prj-hds-np-data/ml-pipeline-images/sow-py:de50c50",
-)
+    )
 
 @dsl.component(
     base_image=IMAGE_URI,
@@ -52,7 +51,7 @@ def drift_check_component(
     # Outputs
     run_id: str = "",
     run_timestamp_utc: str = "",
-    gcs_report_path: str = "gs://gcs-mlops-setup-prj-hds-np-data-unique/reports",
+    gcs_report_path: str = "gs://xxxxxxxxxxxxx/reports",
 ) -> str:
     """
     Simple drift monitor.
