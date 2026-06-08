@@ -18,17 +18,17 @@ from src.pipeline.components.register_model_component import register_model_comp
 def sow_train_validate_register_pipeline(
     # Snowflake / secret
     app_env: str = "np",
-    gcp_project_id: str = "prj-hds-np-data",
-    snowflake_account: str = "HDSUPPLY-DATA",
-    snowflake_user: str = "INTERFACE_VERTEX_DEV",
-    snowflake_database: str = "EDP_ML_DEV",
+    gcp_project_id: str = "data",
+    snowflake_account: str = "",
+    snowflake_user: str = "",
+    snowflake_database: str = "",
     snowflake_schema: str = "SOW",
-    snowflake_role: str = "HDS-EDP-IT-MLOPS-DEVELOPER-U0",
-    snowflake_warehouse: str = "MLOPS_DEV_WH1",
+    snowflake_role: str = "",
+    snowflake_warehouse: str = "MLOPS",
     snowflake_password_secret_name: str = "snowflake-password",
 
     # output / table bases
-    output_database: str = "EDP_ML_DEV",
+    output_database: str = "",
     output_schema: str = "SOW",
     history_table_base: str = "SOW_HISTORY",
     features_table_base: str = "SOW_FEATURES_PIPELINETEST",
@@ -45,7 +45,7 @@ def sow_train_validate_register_pipeline(
     end_date: str = "",
 
     # feature-threshold baseline + knobs
-    baseline_gcs_path: str = "gs://gcs-mlops-setup-prj-hds-np-data-unique/models/sow-clusters/run_20250913_203500_20250913_203500/baseline.json",
+    baseline_gcs_path: str = "gs://gcs/baseline.json",
     feature_flex_pct: float = 0.5,
 
     # training options
@@ -55,7 +55,7 @@ def sow_train_validate_register_pipeline(
     clusters_max: int = 10,
     min_customers_for_cluster: int = 60,
     training_max_rows: int = 100000,
-    model_gcs_prefix: str = "gs://gcs-mlops-setup-prj-hds-np-data-unique/models/sow-clusters",
+    model_gcs_prefix: str = "gs://gcs/sow-clusters",
 
     # model validation
     silhouette_threshold: float = 0.20,
@@ -65,12 +65,12 @@ def sow_train_validate_register_pipeline(
     project: str = "prj-hds-np-data",
     location: str = "us-central1",
     model_display_name: str = "sow-clusters-bundle",
-    serving_container_image_uri: str = "us-central1-docker.pkg.dev/prj-hds-np-data/ml-pipeline-images/sow-py:de50c50",
+    serving_container_image_uri: str = "/sow-py:de50c50",
     labels_json: str = '{"project":"sow","stage":"np"}',
     description: str = "Cluster bundle with per-segment artifacts",
 
     # reporting
-    gcs_report_path: str = "gs://gcs-mlops-setup-prj-hds-np-data-unique/reports",
+    gcs_report_path: str = "gs:///reports",
 ):
     """End-to-end pipeline (all KFP components, no CustomJob)."""
 
